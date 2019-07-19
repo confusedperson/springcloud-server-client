@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.FaceCustomerMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.model.FaceCustomer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="gender" property="gender" jdbcType="BIT" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="smile_value" property="smileValue" jdbcType="REAL" />
+    <result column="glass" property="glass" jdbcType="VARCHAR" />
+    <result column="emotion" property="emotion" jdbcType="VARCHAR" />
+    <result column="ethnicity" property="ethnicity" jdbcType="VARCHAR" />
+    <result column="beauty" property="beauty" jdbcType="REAL" />
+    <result column="face_token" property="faceToken" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="dep_id" property="depId" jdbcType="INTEGER" />
+    <result column="enterprise_id" property="enterpriseId" jdbcType="INTEGER" />
+    <result column="device_mac" property="deviceMac" jdbcType="VARCHAR" />
+    <result column="face_url" property="faceUrl" jdbcType="VARCHAR" />
+    <result column="is_oss_url" property="isOssUrl" jdbcType="BIT" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="reception_time" property="receptionTime" jdbcType="TIMESTAMP" />
+    <result column="is_valid" property="isValid" jdbcType="INTEGER" />
+    <result column="face_quality" property="faceQuality" jdbcType="REAL" />
+    <result column="skinstatus" property="skinstatus" jdbcType="VARCHAR" />
+    <result column="face_quality_threshold" property="faceQualityThreshold" jdbcType="REAL" />
+    <result column="headpose" property="headpose" jdbcType="VARCHAR" />
+    <result column="is_error" property="isError" jdbcType="BIT" />
+    <result column="vip_id" property="vipId" jdbcType="INTEGER" />
+    <result column="reg_type" property="regType" jdbcType="INTEGER" />
+    <result column="error_reason" property="errorReason" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, gender, age, smile_value, glass, emotion, ethnicity, beauty, face_token, create_time, 
+    dep_id, enterprise_id, device_mac, face_url, is_oss_url, user_id, reception_time, 
+    is_valid, face_quality, skinstatus, face_quality_threshold, headpose, is_error, vip_id, 
+    reg_type, error_reason
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from is_face_customer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>
