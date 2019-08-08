@@ -45,4 +45,7 @@ public interface FaceCustomerMapper {
     
     List<FaceCustomer> getFaceCustomerListByVipId(@Param("vipId")Integer vipId);
     
+    int selectCount();
+    
+    List<FaceCustomer> selectFace();
 }

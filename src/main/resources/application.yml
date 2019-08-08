@@ -2,6 +2,7 @@ server:
   port: 9092
   servlet:
    context-path: /server-client #如果不加这个项目名 单独访问的时间就不要加项目名，http://localhost:9094/face/test，如果做ribbon负载均衡不能加项目名
+
 eureka:
   client:
     service-url:

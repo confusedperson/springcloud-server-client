@@ -41,4 +41,16 @@
     from is_face_customer
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectCount"  resultType="java.lang.Integer" >
+   select 
+    count(1)
+    from is_face_customer
+  </select>
+  
+   <select id="selectFace"  resultMap="BaseResultMap">
+  select 
+    <include refid="Base_Column_List" />
+    from is_face_customer
+  </select>
 </mapper>
