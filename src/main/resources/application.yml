@@ -7,17 +7,26 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:9090/eureka/  # 服务中心地址
+      
 spring:
   application:
     name: server-client # 客户端的名字
-    
-  datasource:
-    username: root
-    password: TQrGHEKTmPLNGGSz
-    url: jdbc:mysql://121.43.123.76:3306/shopwebdb?autoReconnect=true&autoReconnectForPools=true&noAccessToProcedureBodies=true&useunicode=true&zeroDateTimeBehavior=convertToNull
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    config:
+      label: master #指明远程仓库的分支
+      profile: test #指明配置文件环境
+      discovery:
+        enabled: true
+        service-id: config-server #配置中心项目名
+#      uri: http://localhost:8888/
 
-mybatis:
-#  type-aliases-package: com.example.demo.model
-  mapper-locations: classpath:mybatis/mappers/*.xml
+#  datasource:
+#    username: root
+#    password: TQrGHEKTmPLNGGSz
+#    url: jdbc:mysql://121.43.123.76:3306/shopwebdb?autoReconnect=true&autoReconnectForPools=true&noAccessToProcedureBodies=true&useunicode=true&zeroDateTimeBehavior=convertToNull
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#
+#mybatis:
+##  type-aliases-package: com.example.demo.model
+#  mapper-locations: classpath:mybatis/mappers/*.xml
   
